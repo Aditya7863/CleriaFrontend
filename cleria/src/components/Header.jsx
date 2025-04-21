@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../../public/assets/logo.png';
-import { Facebook, Twitter, Instagram } from '@mui/icons-material';
+import logo from '/assets/logo.png';
+import { AccountCircle } from '@mui/icons-material';
 
 const Header = () => {
   return (
     <div className="flex items-center justify-between w-full px-4 py-4 bg-transparent fixed top-0 left-0 right-0 z-50">
-
+      
       {/* Logo on the Left */}
       <Link to="/">
         <img src={logo} alt="Logo" className="h-14 mr-4" />
@@ -21,16 +21,17 @@ const Header = () => {
           <Link to="/about">
             <button className="text-black mx-10 text-xl hover:text-blue-500 transition cursor-pointer">ABOUT</button>
           </Link>
+          <Link to="/dashboard">
+            <button className="text-black mx-10 text-xl hover:text-blue-500 transition cursor-pointer">DASHBOARD</button>
+          </Link>
         </nav>
       </div>
 
+      {/* Account Icon (Linked to Register Page) */}
+      <Link to="/register" className="mr-6">
+        <AccountCircle style={{ fontSize: '35px', color: 'white' }} className="cursor-pointer hover:text-gray-300 transition" />
+      </Link>
 
-      {/* Social Media Icons on the Right */}
-      <div className="flex space-x-6">
-        <Facebook className="text-blue-600 cursor-pointer hover:text-blue-800 transition" />
-        <Twitter className="text-blue-400 cursor-pointer hover:text-blue-600 transition" />
-        <Instagram className="text-pink-500 cursor-pointer hover:text-pink-700 transition" />
-      </div>
     </div>
   );
 }
